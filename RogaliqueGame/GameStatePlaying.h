@@ -2,12 +2,8 @@
 #include "SFML/Graphics.hpp"
 #include "SFML/Audio.hpp"
 #include "GameStateData.h"
-#include "Platform.h"
-#include "Ball.h"
-#include "BlockFactory.h"
 #include "LevelLoader.h"
 #include "IObserver.h"
-#include "Bonus.h"
 #include <unordered_map>
 
 namespace RogaliqueGame
@@ -35,21 +31,12 @@ namespace RogaliqueGame
 	
 
 	private:
-		void createBlocks();
-		void GetBallInverse(const sf::Vector2f& ballPos, const sf::FloatRect& blockRect, bool& needInverseDirX,	bool& needInverseDirY);
-
-
+	
 		// Resources
 		sf::Font font;
-		sf::SoundBuffer bonusSoundBuffer;
 		sf::SoundBuffer gameOverSoundBuffer;
 
-		// Game data
-		std::vector<std::shared_ptr<GameObject>> gameObjects;
-		std::vector<std::shared_ptr<Block>> blocks;
-
 		// UI data
-		sf::Text scoreText;
 		sf::Text inputHintText;
 		sf::RectangleShape background;
 		int currentScore = 0;
@@ -58,16 +45,9 @@ namespace RogaliqueGame
 		sf::Sound gameOverSound;
 		sf::Sound bonusSound;
 
-
-		//Block creator
-		std::unordered_map<BlockType, std::unique_ptr<BlockFactory>> factories;
-		int breackableBlocksCount = 0;
-
 		//Levels
 		LevelLoader levelLoder;
 		int currentLevel = 0;
 
-		//Bonus
-		std::map<BonusType, Bonus> bonuses;
 	};
 }

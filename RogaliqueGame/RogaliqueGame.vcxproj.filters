@@ -25,9 +25,6 @@
     <ClCompile Include="Text.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
-    <ClCompile Include="Platform.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="Application.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
@@ -49,31 +46,16 @@
     <ClCompile Include="GameState.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="Ball.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="GameObject.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="GameStateData.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="Block.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="GameStateGameWin.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="IDelayedAction.h">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="BlockFactory.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="LevelLoader.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Bonus.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -88,9 +70,6 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="Application.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Platform.h">
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
@@ -120,17 +99,11 @@
     <ClInclude Include="GameState.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="Ball.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="GameStateData.h">
       <Filter>Sources\GameStates</Filter>
-    </ClInclude>
-    <ClInclude Include="Block.h">
-      <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="GameStateGameWin.h">
       <Filter>Sources\GameStates</Filter>
@@ -141,19 +114,10 @@
     <ClInclude Include="randomizer.h">
       <Filter>Sources</Filter>
     </ClInclude>
-    <ClInclude Include="BlockFactory.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="LevelLoader.h">
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="IObserver.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="Bonus.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
-    <ClInclude Include="ScoringStrategy.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>

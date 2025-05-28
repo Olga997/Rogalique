@@ -1,5 +1,4 @@
 #pragma once
-#include "Block.h"
 #include <vector>
 #include <string>
 #include <memory>
@@ -16,7 +15,7 @@ namespace RogaliqueGame
 
 	struct Level
 	{
-		std::vector < std::pair < sf::Vector2i, BlockType>> m_blocks;
+		
 	};
 
 	class LevelLoader final
@@ -31,7 +30,6 @@ namespace RogaliqueGame
 		int GetLevelCount();
 	private:
 		void LoadLevelsFromFile();
-		static BlockType CharToBlockType(char symbol);
 		std::vector<Level> levels;
 	};
 }
