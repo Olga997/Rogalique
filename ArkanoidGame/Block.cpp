@@ -4,7 +4,7 @@
 #include <assert.h>
 
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	Block::Block(const sf::Vector2f& position, const sf::Color& color)
 		: GameObject(SETTINGS.TEXTURES_PATH + "block.png", position, SETTINGS.BLOCK_WIDTH, SETTINGS.BLOCK_HEIGHT)

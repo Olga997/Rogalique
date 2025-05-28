@@ -2,7 +2,7 @@
 #include "Application.h"
 
 
-using namespace ArkanoidGame;
+using namespace RogaliqueGame;
 
 int main()
 {

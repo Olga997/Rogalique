@@ -3,7 +3,7 @@
 #include "Game.h"
 #include <assert.h>
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	void GameStateMainMenuData::Init()
 	{
@@ -99,7 +99,7 @@ namespace ArkanoidGame
 		exitGameItem.childrens.push_back(noItem);
 
 		MenuItem mainMenu;
-		mainMenu.hintText.setString("Arkanoid Game");
+		mainMenu.hintText.setString(SETTINGS.GAME_NAME);
 		mainMenu.hintText.setFont(font);
 		mainMenu.hintText.setCharacterSize(48);
 		mainMenu.hintText.setFillColor(sf::Color::Red);

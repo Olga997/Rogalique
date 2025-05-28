@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <assert.h>
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	Platform::Platform(const sf::Vector2f& position)
 		: GameObject(SETTINGS.TEXTURES_PATH + "platform.png", position, SETTINGS.PLATFORM_WIDTH, SETTINGS.PLATFORM_HEIGHT)

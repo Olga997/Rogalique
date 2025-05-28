@@ -4,7 +4,7 @@
 
 
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	class Block;
 	class BlockFactory

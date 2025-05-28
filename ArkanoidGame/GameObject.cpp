@@ -2,7 +2,7 @@
 #include "Sprite.h"
 #include <assert.h>
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	GameObject::GameObject(const std::string& texturePath, const sf::Vector2f& position, float width, float height)
 	{
@@ -11,7 +11,7 @@ namespace ArkanoidGame
 		InitSprite(sprite, width, height, texture);
 		sprite.setPosition(position);
 	}
-	void ArkanoidGame::GameObject::Draw(sf::RenderWindow& window)
+	void RogaliqueGame::GameObject::Draw(sf::RenderWindow& window)
 	{
 		DrawSprite(sprite, window);
 	}

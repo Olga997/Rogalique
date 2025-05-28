@@ -4,7 +4,7 @@
 #include <assert.h>
 #include "randomizer.h"
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	Ball::Ball(const sf::Vector2f& position)
 		: GameObject(SETTINGS.TEXTURES_PATH + "ball.png", position, SETTINGS.BALL_SIZE, SETTINGS.BALL_SIZE)

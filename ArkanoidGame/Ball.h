@@ -5,7 +5,7 @@
 #include "IObserver.h"
 
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	class Ball : public GameObject, public Collidable, public IObservable
 	{

@@ -10,7 +10,7 @@
 #include "Bonus.h"
 #include <unordered_map>
 
-namespace ArkanoidGame
+namespace RogaliqueGame
 {
 	class Game;
 	class Block;
