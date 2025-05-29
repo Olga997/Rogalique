@@ -11,7 +11,7 @@ namespace RogaliqueGame
 		InitSprite(sprite, width, height, texture);
 		sprite.setPosition(position);
 	}
-	void RogaliqueGame::GameObject::Draw(sf::RenderWindow& window)
+	void GameObject::Draw(sf::RenderWindow& window)
 	{
 		DrawSprite(sprite, window);
 	}

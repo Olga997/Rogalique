@@ -58,6 +58,24 @@
     <ClCompile Include="LevelLoader.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="DeveloperLevel.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Wall.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Music.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Floor.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="AI.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -118,6 +136,24 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="IObserver.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="DeveloperLevel.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Wall.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Music.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Floor.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="AI.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>
