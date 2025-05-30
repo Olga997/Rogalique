@@ -3,7 +3,9 @@
 #include "SpriteColliderComponent.h"
 #include "SpriteMovementAnimationComponent.h"
 #include "FollowComponent.h"
-#include <ResourceSystem.h>
+#include "ResourceSystem.h"
+#include "StatsComponent.h"
+#include "AttackComponent.h"
 
 namespace RogaliqueGame
 {
@@ -24,6 +26,10 @@ namespace RogaliqueGame
 		auto rigidbody = gameObject->AddComponent<XYZEngine::RigidbodyComponent>();
 		rigidbody->SetKinematic(false);
 		auto collider = gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
+
+		auto health = gameObject->AddComponent<XYZEngine::StatsComponent>(100.f, 50.f);
+
+		auto attackComponent = gameObject->AddComponent<XYZEngine::AttackComponent>(10.f);
 	}
 
 	XYZEngine::GameObject* AI::GetGameObject()

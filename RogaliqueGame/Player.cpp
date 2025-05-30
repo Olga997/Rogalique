@@ -4,6 +4,8 @@
 #include <MovementComponent.h>
 #include <SpriteDirectionComponent.h>
 #include <SpriteMovementAnimationComponent.h>
+#include <StatsComponent.h>
+#include <AttackComponent.h>
 
 namespace RogaliqueGame
 {
@@ -35,6 +37,10 @@ namespace RogaliqueGame
 
 		auto animator = gameObject->AddComponent<XYZEngine::SpriteMovementAnimationComponent>();
 		animator->Initialize("player", 6.f);
+
+		auto health = gameObject->AddComponent<XYZEngine::StatsComponent>(100.0f, 50.0f);
+
+		auto attackComponent = gameObject->AddComponent<XYZEngine::AttackComponent>(10.0f);
 	}
 
 	XYZEngine::GameObject* Player::GetGameObject()
