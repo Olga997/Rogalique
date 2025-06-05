@@ -1,39 +1,42 @@
 #include "AI.h"
-#include "SpriteDirectionComponent.h"
-#include "SpriteColliderComponent.h"
-#include "SpriteMovementAnimationComponent.h"
+
+#include "AttackComponent.h"
 #include "FollowComponent.h"
 #include "ResourceSystem.h"
+#include "SpriteColliderComponent.h"
+#include "SpriteDirectionComponent.h"
+#include "SpriteMovementAnimationComponent.h"
 #include "StatsComponent.h"
-#include "AttackComponent.h"
 
-namespace RogaliqueGame
-{
-	RogaliqueGame::AI::AI(const XYZEngine::Vector2Df& position, XYZEngine::GameObject* player)
-	{
-		gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("AI");
-		auto transform = gameObject->GetComponent<XYZEngine::TransformComponent>();
-		transform->SetWorldPosition(position);
-			
-		auto renderer = gameObject->AddComponent<XYZEngine::SpriteRendererComponent>();
-		renderer->SetTexture(*XYZEngine::ResourceSystem::Instance()->GetTextureMapElementShared("AI",0));
-		renderer->SetPixelSize(100, 100);
+namespace RogaliqueGame {
+RogaliqueGame::AI::AI(const XYZEngine::Vector2Df& position,
+                      XYZEngine::GameObject* player) {
+    gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("AI");
+    auto transform = gameObject->GetComponent<XYZEngine::TransformComponent>();
+    transform->SetWorldPosition(position);
 
-		auto follower = gameObject->AddComponent<XYZEngine::FollowComponent>();
-		follower->SetTarget(player);
-		follower->SetSpeed(120.f);
+    auto renderer =
+        gameObject->AddComponent<XYZEngine::SpriteRendererComponent>();
+    renderer->SetTexture(
+        *XYZEngine::ResourceSystem::Instance()->GetTextureMapElementShared("AI",
+                                                                           0));
+    renderer->SetPixelSize(100, 100);
 
-		auto rigidbody = gameObject->AddComponent<XYZEngine::RigidbodyComponent>();
-		rigidbody->SetKinematic(false);
-		auto collider = gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
+    auto follower = gameObject->AddComponent<XYZEngine::FollowComponent>();
+    follower->SetTarget(player);
+    follower->SetSpeed(120.f);
 
-		auto health = gameObject->AddComponent<XYZEngine::StatsComponent>(100.f, 50.f);
+    auto rigidbody = gameObject->AddComponent<XYZEngine::RigidbodyComponent>();
+    rigidbody->SetKinematic(false);
+    auto collider =
+        gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
 
-		auto attackComponent = gameObject->AddComponent<XYZEngine::AttackComponent>(10.f);
-	}
+    auto health =
+        gameObject->AddComponent<XYZEngine::StatsComponent>(100.f, 50.f);
 
-	XYZEngine::GameObject* AI::GetGameObject()
-	{
-		return gameObject;
-	}
+    auto attackComponent =
+        gameObject->AddComponent<XYZEngine::AttackComponent>(10.f);
+}
+
+XYZEngine::GameObject* AI::GetGameObject() { return gameObject; }
 }
