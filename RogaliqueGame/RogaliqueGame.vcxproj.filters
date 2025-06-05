@@ -76,6 +76,12 @@
     <ClCompile Include="AI.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="MazeGenerator.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Creeper.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -154,6 +160,12 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="AI.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="MazeGenerator.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Creeper.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>
