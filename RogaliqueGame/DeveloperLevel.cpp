@@ -1,6 +1,6 @@
 #include "DeveloperLevel.h"
-
 #include "MazeGenerator.h"
+#include"Creeper.h"
 #include "Wall.h"
 
 using namespace XYZEngine;
@@ -89,9 +89,8 @@ void DeveloperLevel::Start() {
 
     player = std::make_shared<Player>(std::forward<XYZEngine::Vector2Df>(
         {width / 2 * 128.f, height / 2 * 128.f}));
-    ai = std::make_shared<AI>(std::forward<XYZEngine::Vector2Df>(
-                                  {width / 3 * 128.f, height / 3 * 128.f}),
-                              player->GetGameObject());
+    creeperSpawner = std::make_shared<Spawner>(2, std::make_unique<Creeper>());
+    creeperSpawner->Spawn();
     music = std::make_unique<Music>("music");
 }
 void DeveloperLevel::Restart() {

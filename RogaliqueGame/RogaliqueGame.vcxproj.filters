@@ -46,9 +46,6 @@
     <ClCompile Include="GameState.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>Sources</Filter>
-    </ClCompile>
     <ClCompile Include="GameStateData.cpp">
       <Filter>Sources\GameStates</Filter>
     </ClCompile>
@@ -80,6 +77,9 @@
       <Filter>Sources</Filter>
     </ClCompile>
     <ClCompile Include="Creeper.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Spawner.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
   </ItemGroup>
@@ -123,9 +123,6 @@
     <ClInclude Include="GameState.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>Sources</Filter>
-    </ClInclude>
     <ClInclude Include="GameStateData.h">
       <Filter>Sources\GameStates</Filter>
     </ClInclude>
@@ -166,6 +163,9 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="Creeper.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Spawner.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>

@@ -39,4 +39,4 @@ RogaliqueGame::AI::AI(const XYZEngine::Vector2Df& position,
 }
 
 XYZEngine::GameObject* AI::GetGameObject() { return gameObject; }
-}
+}  // namespace RogaliqueGame

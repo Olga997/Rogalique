@@ -6,7 +6,7 @@
 #include "Wall.h"
 #include "Floor.h"
 #include "Player.h"
-#include "AI.h"
+#include "Spawner.h"
 
 using namespace XYZEngine;
 
@@ -24,7 +24,7 @@ namespace RogaliqueGame
 
 	private:
 		std::shared_ptr<Player> player;
-		std::shared_ptr<AI> ai;
+		std::shared_ptr<Spawner> creeperSpawner;
 		std::unique_ptr<Music> music;
 
 	
