@@ -7,20 +7,22 @@
 #include "SpriteDirectionComponent.h"
 #include "SpriteMovementAnimationComponent.h"
 #include "StatsComponent.h"
+#include "SpriteRendererComponent.h"
 
 namespace RogaliqueGame {
-RogaliqueGame::AI::AI(const XYZEngine::Vector2Df& position,
-                      XYZEngine::GameObject* player) {
-    gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("AI");
-    auto transform = gameObject->GetComponent<XYZEngine::TransformComponent>();
-    transform->SetWorldPosition(position);
+
+    AI::AI( XYZEngine::GameObject* player, sf::Color color) 
+    {
+
+    gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("AI");   
 
     auto renderer =
         gameObject->AddComponent<XYZEngine::SpriteRendererComponent>();
     renderer->SetTexture(
-        *XYZEngine::ResourceSystem::Instance()->GetTextureMapElementShared("AI",
-                                                                           0));
+        *XYZEngine::ResourceSystem::Instance()->GetTextureMapElementShared("AI",0));
+    renderer->SetTextureColor(color);
     renderer->SetPixelSize(100, 100);
+  
 
     auto follower = gameObject->AddComponent<XYZEngine::FollowComponent>();
     follower->SetTarget(player);
@@ -31,12 +33,29 @@ RogaliqueGame::AI::AI(const XYZEngine::Vector2Df& position,
     auto collider =
         gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
 
-    auto health =
-        gameObject->AddComponent<XYZEngine::StatsComponent>(100.f, 50.f);
+    auto health = gameObject->AddComponent<XYZEngine::StatsComponent>(maxHealth,
+                                                                      maxArmor);
 
     auto attackComponent =
-        gameObject->AddComponent<XYZEngine::AttackComponent>(10.f);
-}
+        gameObject->AddComponent<XYZEngine::AttackComponent>(attackPower);
+    }
 
 XYZEngine::GameObject* AI::GetGameObject() { return gameObject; }
-}  // namespace RogaliqueGame
+    std::unique_ptr<AI> AI::Clone() { return std::make_unique<AI>(*this); }
+
+    void AI::SetPosition(const XYZEngine::Vector2Df& spawnPosition)
+    {
+        auto transform =
+        gameObject->GetComponent<XYZEngine::TransformComponent>();
+        transform->SetWorldPosition(spawnPosition);
+    }
+
+    XYZEngine::Vector2Df AI::GetPosition()
+    { 
+       auto transform =  gameObject->GetComponent<XYZEngine::TransformComponent>();
+        auto spawnPosition = transform->GetWorldPosition();
+        return spawnPosition; 
+    }
+ 
+
+    }  // namespace RogaliqueGame

@@ -1,25 +1,27 @@
 #pragma once
 #include "AI.h"
 
+using namespace XYZEngine;
 
-namespace RogaliqueGame 
-{
+namespace RogaliqueGame {
 
-class Spawner 
-{
+
+class Spawner {
    public:
-    Spawner(int enemyCount, AI* enemyType);
+    Spawner(const XYZEngine::Vector2Df& spawnPosition);
+
     ~Spawner() = default;
 
-    void Spawn();
+    void Spawn(int enemyCount, std::unique_ptr<AI> prototype);
 
     void SetEnemyCount(int count);
-    void SetEnemyProtoripe(std::shared_ptr<AI> prototype);
+    void SetEnemyProtoripe(std::unique_ptr<AI> newPrototype);
 
    private:
     int enemyCount;
-    std::vector<std::shared_ptr<AI>> enemies;
-    std::shared_ptr<AI> prototype;
-};
-}
+    const XYZEngine::Vector2Df position;
+    std::vector<std::unique_ptr<AI>> enemies;
+    std::unique_ptr<AI> prototype;
 
+};
+}  // namespace RogaliqueGame

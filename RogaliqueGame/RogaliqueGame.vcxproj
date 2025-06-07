@@ -162,7 +162,6 @@
     <ClCompile Include="AI.cpp" />
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Creeper.cpp" />
-    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="DeveloperLevel.cpp" />
     <ClCompile Include="Floor.cpp" />
     <ClCompile Include="GameState.cpp" />
@@ -172,6 +171,7 @@
     <ClCompile Include="MazeGenerator.cpp" />
     <ClCompile Include="Music.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameMain.cpp" />
@@ -189,7 +189,6 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="Collidable.h" />
     <ClInclude Include="Creeper.h" />
-    <ClInclude Include="Spawner.h" />
     <ClInclude Include="DeveloperLevel.h" />
     <ClInclude Include="Floor.h" />
     <ClInclude Include="GameState.h" />
@@ -201,6 +200,7 @@
     <ClInclude Include="Music.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="randomizer.h" />
+    <ClInclude Include="Spawner.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameSettings.h" />

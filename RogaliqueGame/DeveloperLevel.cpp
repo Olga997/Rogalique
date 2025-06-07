@@ -7,6 +7,7 @@ using namespace XYZEngine;
 
 namespace RogaliqueGame {
 void DeveloperLevel::Start() {
+   
     int width = 15;
     int height = 15;
 
@@ -89,11 +90,19 @@ void DeveloperLevel::Start() {
 
     player = std::make_shared<Player>(std::forward<XYZEngine::Vector2Df>(
         {width / 2 * 128.f, height / 2 * 128.f}));
-    creeperSpawner = std::make_shared<Spawner>(2, std::make_unique<Creeper>());
-    creeperSpawner->Spawn();
+   
     music = std::make_unique<Music>("music");
+
+    //Создание спавнера с криперами 
+    creeperSpawner =
+        std::make_unique<Spawner>(std::forward<XYZEngine::Vector2Df>(
+            {width / 2 * 128.f, height / 2 * 128.f}));
+
+     creeperSpawner->Spawn(5, std::make_unique<Creeper>(player->GetGameObject(), sf::Color::Green));
+
 }
-void DeveloperLevel::Restart() {
+void DeveloperLevel::Restart() 
+{
     Stop();
     Start();
 }

@@ -24,9 +24,8 @@ namespace RogaliqueGame
 
 	private:
 		std::shared_ptr<Player> player;
-		std::shared_ptr<Spawner> creeperSpawner;
 		std::unique_ptr<Music> music;
-
+        std::shared_ptr<Spawner> creeperSpawner;
 	
 	};
 }
