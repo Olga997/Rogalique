@@ -1,13 +1,13 @@
 #include "DeveloperLevel.h"
+
+#include "Creeper.h"
 #include "MazeGenerator.h"
-#include"Creeper.h"
 #include "Wall.h"
 
 using namespace XYZEngine;
 
 namespace RogaliqueGame {
 void DeveloperLevel::Start() {
-   
     int width = 15;
     int height = 15;
 
@@ -90,19 +90,18 @@ void DeveloperLevel::Start() {
 
     player = std::make_shared<Player>(std::forward<XYZEngine::Vector2Df>(
         {width / 2 * 128.f, height / 2 * 128.f}));
-   
+
     music = std::make_unique<Music>("music");
 
-    //Создание спавнера с криперами 
-    creeperSpawner =
-        std::make_unique<Spawner>(std::forward<XYZEngine::Vector2Df>(
-            {width / 2 * 128.f, height / 2 * 128.f}));
+    // Создание спавнера с криперами
+    std::shared_ptr<Spawner> creeperSpawner = std::make_unique<Spawner>(
+        std::forward<XYZEngine::Vector2Df>(
+            {width / 3 * 128.f, height / 3 * 128.f}),
+        3, std::make_unique<Creeper>(player->GetGameObject(), "Creeper", 0));
 
-     creeperSpawner->Spawn(5, std::make_unique<Creeper>(player->GetGameObject(), sf::Color::Green));
-
+    creeperSpawner->Spawn();
 }
-void DeveloperLevel::Restart() 
-{
+void DeveloperLevel::Restart() {
     Stop();
     Start();
 }

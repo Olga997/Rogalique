@@ -1,11 +1,10 @@
 #include "Creeper.h"
 
-namespace RogaliqueGame 
-{
-Creeper::Creeper( XYZEngine::GameObject* player, sf::Color color) 
-    : AI(player,color)
-{
-    
+namespace RogaliqueGame {
+std::unique_ptr<AI> Creeper::Clone(XYZEngine::Vector2Df spawnPosition,
+                                   std::string enemyName, int id) const {
+    auto clonedCreeper = std::make_unique<Creeper>(fallowTarget, enemyName, id);
+    clonedCreeper->SetPosition(spawnPosition);
+    return clonedCreeper;
 }
-std::unique_ptr<AI> Creeper::Clone() const { return std::make_unique<Creeper>(*this); };
 }  // namespace RogaliqueGame

@@ -87,7 +87,16 @@ namespace XYZEngine
 				obj->Print();
 			}
 		}
-	}
+        }
+
+        std::string GameWorld::GetNameAllGameObjects() 
+		{ 
+			int gameObjectsCount = gameObjects.size();
+            for (int i = 0; i < gameObjectsCount; i++)
+			{
+               return std::string(gameObjects[i]->GetName()); 
+			} 
+		}
 
 	void GameWorld::DestroyGameObjectImmediate(GameObject* gameObject)
 	{

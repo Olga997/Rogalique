@@ -1,26 +1,23 @@
 #include "LevelLoader.h"
-#include "GameSettings.h"
-#include <fstream>
+
 #include <assert.h>
+
 #include <filesystem>
+#include <fstream>
+
+#include "GameSettings.h"
 
 namespace RogaliqueGame {
-	Level& LevelLoader::GetLevel(int i) 
-	{
-		return levels.at(i);
-	}
+Level& LevelLoader::GetLevel(int i) { return levels.at(i); }
 
-	void LevelLoader::LoadLevelsFromFile() {
-		std::string filepath = SETTINGS.LEVELS_CONFIG_PATH;
-		std::string line;
-		std::ifstream file(filepath);
-		int y = 0;
-		
-		file.close();
-	}
+void LevelLoader::LoadLevelsFromFile() {
+    std::string filepath = SETTINGS.LEVELS_CONFIG_PATH;
+    std::string line;
+    std::ifstream file(filepath);
+    int y = 0;
 
-	int LevelLoader::GetLevelCount()
-	{
-		return levels.size();
-	}
+    file.close();
 }
+
+int LevelLoader::GetLevelCount() { return levels.size(); }
+}  // namespace RogaliqueGame

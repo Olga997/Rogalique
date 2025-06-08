@@ -1,37 +1,33 @@
 #include "Spawner.h"
+
 #include "Logger.h"
 
 namespace RogaliqueGame {
-Spawner::Spawner(const XYZEngine::Vector2Df& spawnPosition)
-    :  position(spawnPosition) {
-
+Spawner::Spawner(const XYZEngine::Vector2Df& spawnPosition, int enemyCount,
+                 std::unique_ptr<AI> prototype)
+    : position(spawnPosition),
+      enemyCount(enemyCount),
+      prototype_(std::move(prototype)) {
+    LOG_INFO(prototype_->GetGameObject()->GetName());
 }
-void Spawner::Spawn(int enemyCount, std::unique_ptr<AI> prototype) {
+void Spawner::Spawn() {
     enemies.clear();
 
-    for (int i = 0; i < enemyCount; i++) 
-    {
-        auto newEnemy = prototype->Clone();       
-
-        XYZEngine::Vector2Df newPosition = {position.x - 10 * i + 1,
-                                            position.y - 10 * i + 1};
-        newEnemy->SetPosition(newPosition);    
-
-        LOG_INFO("Creeper spawn " + std::to_string(newEnemy->GetPosition().x));
-
-        enemies.push_back(std::move(newEnemy));       
-
+    for (int i = 0; i < enemyCount - 1; i++) {
+        XYZEngine::Vector2Df newPosition = {position.x - 128 * i + 1,
+                                            position.y - 128 * i + 1};
+        auto newEnemy = prototype_->Clone(newPosition, "Clone", i);
+        LOG_INFO("Creeper spawn " + std::to_string(newEnemy->GetPosition().x) +
+                 "  " + newEnemy->GetGameObject()->GetName());
+        enemies.push_back(std::move(newEnemy));
     }
-    LOG_INFO(std::to_string(enemies.size()));
 }
-
-
 
 void Spawner::SetEnemyCount(int count) { enemyCount = count; }
 
-void Spawner::SetEnemyProtoripe(std::unique_ptr<AI> newPrototype) 
-{
-    prototype = std::move(newPrototype);
+void Spawner::SetEnemyPrototipe(std::unique_ptr<AI> newPrototype) {
+    prototype_ = std::move(newPrototype);
 }
 
 }  // namespace RogaliqueGame
+// namespace RogaliqueGame

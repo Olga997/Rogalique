@@ -9,17 +9,20 @@
 namespace RogaliqueGame {
 class AI {
    public:
-    AI(XYZEngine::GameObject* player,
-       sf::Color color);
+    AI(XYZEngine::GameObject* player, std::string enemyName, int id);
     XYZEngine::GameObject* GetGameObject();
-    std::unique_ptr<AI> Clone();
+    virtual std::unique_ptr<AI> Clone(XYZEngine::Vector2Df spawnPosition,
+                                      std::string enemyName, int id) const;
     void SetPosition(const XYZEngine::Vector2Df& spawnPosition);
+    void SetColor(sf::Color color);
     XYZEngine::Vector2Df GetPosition();
+    XYZEngine::GameObject* fallowTarget;
 
    private:
     XYZEngine::GameObject* gameObject;
-    float maxHealth = 0.f; 
-    float maxArmor=0.f;     
-    float attackPower=0.f;
+
+    float maxHealth = 0.f;
+    float maxArmor = 0.f;
+    float attackPower = 0.f;
 };
 }  // namespace RogaliqueGame
