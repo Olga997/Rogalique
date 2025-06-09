@@ -19,13 +19,14 @@ namespace XYZEngine
 		const sf::Sprite* GetSprite() const;
 		void SetTexture(const sf::Texture& newTexture);
 		void SetPixelSize(int newWidth, int newHeight);
+        void SetTextureColor(const sf::Color& color);
 
 		void FlipX(bool flip);
 		void FlipY(bool flip);
 	private:
 		Vector2Df scale;
 		sf::Sprite* sprite;
-		TransformComponent* transform;
+        TransformComponent* transform;
 
 		bool isFlipX = false;
 		bool isFlipY = false;

@@ -1,23 +1,23 @@
 #pragma once
-#include "SFML/Graphics.hpp"
 #include <memory>
 
-namespace RogaliqueGame
-{
-	class Collidable 
-	{
-	protected:
-		virtual void OnHit() = 0;
-	public:
-		virtual bool CheckCollision(std::shared_ptr<Collidable> collidable) {
-			if (GetCollision(collidable)) {
-				OnHit();
-				collidable->OnHit();
-				return true;
-			}
-			return false;
-		}
+#include "SFML/Graphics.hpp"
 
-		virtual bool GetCollision(std::shared_ptr<Collidable> collidable) const = 0;
-	};
-}
+namespace RogaliqueGame {
+class Collidable {
+   protected:
+    virtual void OnHit() = 0;
+
+   public:
+    virtual bool CheckCollision(std::shared_ptr<Collidable> collidable) {
+        if (GetCollision(collidable)) {
+            OnHit();
+            collidable->OnHit();
+            return true;
+        }
+        return false;
+    }
+
+    virtual bool GetCollision(std::shared_ptr<Collidable> collidable) const = 0;
+};
+}  // namespace RogaliqueGame

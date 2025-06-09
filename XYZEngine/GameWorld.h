@@ -21,6 +21,7 @@ namespace XYZEngine
 		void Clear();
 
 		void Print() const;
+                std::string GetNameAllGameObjects();
 	private:
 		GameWorld() {}
 		~GameWorld() {}

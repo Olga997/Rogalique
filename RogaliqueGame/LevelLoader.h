@@ -1,35 +1,23 @@
 #pragma once
-#include <vector>
-#include <string>
-#include <memory>
 #include <map>
+#include <memory>
+#include <string>
+#include <vector>
 
-namespace RogaliqueGame
-{
-	enum class BlockType
-	{
-		Simple,
-		TwoHit,
-		Unbreackable
-	};
+namespace RogaliqueGame {
+enum class BlockType { Simple, TwoHit, Unbreackable };
 
-	struct Level
-	{
-		
-	};
+struct Level {};
 
-	class LevelLoader final
-	{
-	public:
-		LevelLoader()
-		{
-			LoadLevelsFromFile();
-		}
-		Level& GetLevel(int i);
-		~LevelLoader() = default;
-		int GetLevelCount();
-	private:
-		void LoadLevelsFromFile();
-		std::vector<Level> levels;
-	};
-}
+class LevelLoader final {
+   public:
+    LevelLoader() { LoadLevelsFromFile(); }
+    Level& GetLevel(int i);
+    ~LevelLoader() = default;
+    int GetLevelCount();
+
+   private:
+    void LoadLevelsFromFile();
+    std::vector<Level> levels;
+};
+}  // namespace RogaliqueGame

@@ -1,5 +1,6 @@
 #include "DeveloperLevel.h"
 
+#include "Creeper.h"
 #include "MazeGenerator.h"
 #include "Wall.h"
 
@@ -89,10 +90,16 @@ void DeveloperLevel::Start() {
 
     player = std::make_shared<Player>(std::forward<XYZEngine::Vector2Df>(
         {width / 2 * 128.f, height / 2 * 128.f}));
-    ai = std::make_shared<AI>(std::forward<XYZEngine::Vector2Df>(
-                                  {width / 3 * 128.f, height / 3 * 128.f}),
-                              player->GetGameObject());
+
     music = std::make_unique<Music>("music");
+
+    // Создание спавнера с криперами
+    std::shared_ptr<Spawner> creeperSpawner = std::make_unique<Spawner>(
+        std::forward<XYZEngine::Vector2Df>(
+            {width / 3 * 128.f, height / 3 * 128.f}),
+        3, std::make_unique<Creeper>(player->GetGameObject(), "Creeper", 0));
+
+    creeperSpawner->Spawn();
 }
 void DeveloperLevel::Restart() {
     Stop();

@@ -2,6 +2,8 @@
 
 #include "TransformComponent.h"
 #include <iostream>
+#include <vector>
+#include <unordered_map>
 
 namespace XYZEngine
 {
@@ -137,6 +139,8 @@ namespace XYZEngine
 
 		friend class GameWorld;
 		friend class TransformComponent;
+   
+
 
 	private:
 		std::string name;
