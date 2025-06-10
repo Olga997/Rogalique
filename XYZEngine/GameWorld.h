@@ -3,37 +3,36 @@
 #include "GameObject.h"
 #include "PhysicsSystem.h"
 
-namespace XYZEngine
-{
-	class GameWorld
-	{
-	public:
-		static GameWorld* Instance();
+namespace XYZEngine {
+class GameWorld {
+   public:
+    static GameWorld* Instance();
 
-		void Update(float deltaTime);
-		void FixedUpdate(float deltaTime);
-		void Render();
-		void LateUpdate();
+    void Update(float deltaTime);
+    void FixedUpdate(float deltaTime);
+    void Render();
+    void LateUpdate();
 
-		GameObject* CreateGameObject();
-		GameObject* CreateGameObject(std::string name);
-		void DestroyGameObject(GameObject* gameObject);
-		void Clear();
+    GameObject* CreateGameObject();
+    GameObject* CreateGameObject(std::string name);
+    void DestroyGameObject(GameObject* gameObject);
+    void Clear();
 
-		void Print() const;
-                std::string GetNameAllGameObjects();
-	private:
-		GameWorld() {}
-		~GameWorld() {}
+    void Print() const;
+    std::string GetNameAllGameObjects();
 
-		GameWorld(GameWorld const&) = delete;
-		GameWorld& operator= (GameWorld const&) = delete;
+   private:
+    GameWorld() {}
+    ~GameWorld() {}
 
-		float fixedCounter = 0.f;
+    GameWorld(GameWorld const&) = delete;
+    GameWorld& operator=(GameWorld const&) = delete;
 
-		std::vector<GameObject*> gameObjects = {};
-		std::vector<GameObject*> markedToDestroyGameObjects = {};
+    float fixedCounter = 0.f;
 
-		void DestroyGameObjectImmediate(GameObject* gameObject);
-	};
-}
+    std::vector<GameObject*> gameObjects = {};
+    std::vector<GameObject*> markedToDestroyGameObjects = {};
+
+    void DestroyGameObjectImmediate(GameObject* gameObject);
+};
+}  // namespace XYZEngine

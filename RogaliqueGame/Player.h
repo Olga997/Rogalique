@@ -12,7 +12,7 @@ class Player {
    public:
     Player(const XYZEngine::Vector2Df& position);
     XYZEngine::GameObject* GetGameObject();
-
+    void Update();
    private:
     XYZEngine::GameObject* gameObject;
 };

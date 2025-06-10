@@ -13,4 +13,9 @@ Floor::Floor(const XYZEngine::Vector2Df& position, int textureMapIndex) {
             "level_floors", textureMapIndex));
     renderer->SetPixelSize(128, 128);
 }
+void Floor::SetColor(sf::Color color) {
+    auto renderer =
+        gameObject->GetComponent<XYZEngine::SpriteRendererComponent>();
+    renderer->SetTextureColor(color);
+}
 }  // namespace RogaliqueGame

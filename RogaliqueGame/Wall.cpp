@@ -21,3 +21,9 @@ RogaliqueGame::Wall::Wall(const XYZEngine::Vector2Df position,
     auto collider =
         gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
 }
+
+void RogaliqueGame::Wall::SetColor(sf::Color color) {
+    auto renderer =
+        gameObject->GetComponent<XYZEngine::SpriteRendererComponent>();
+    renderer->SetTextureColor(color);
+}

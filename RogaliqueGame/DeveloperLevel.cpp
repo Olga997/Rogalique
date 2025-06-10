@@ -1,83 +1,27 @@
 #include "DeveloperLevel.h"
-
 #include "Creeper.h"
 #include "MazeGenerator.h"
 #include "Wall.h"
+#include "LevelManager.h"
+#include "Logger.h"
 
 using namespace XYZEngine;
 
 namespace RogaliqueGame {
+
+DeveloperLevel::DeveloperLevel(int width, int height, int enemyCount,
+                               sf::Color levelColor)
+    : width_(width),
+      height_(height),
+      enemyCount_(enemyCount),
+      levelColor_(levelColor) {}
+
 void DeveloperLevel::Start() {
-    int width = 15;
-    int height = 15;
-
-    for (int y = 0; y < height + 1; y++) {
-        for (int x = 0; x < width + 1; x++) {
+    for (int y = 0; y < height_ + 1; y++) {
+        for (int x = 0; x < width_ + 1; x++) {
             // if not wall place
-            if (x != 0 && x != width && y != 0 && y != height) {
+            if (x != 0 && x != width_ && y != 0 && y != height_) {
                 floors.push_back(std::make_unique<Floor>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if left-bottom corner
-            if (x == 0 && y == 0) {
-                walls.push_back(std::make_unique<Wall>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if right-bottom corner
-            if (x == width && y == 0) {
-                walls.push_back(std::make_unique<Wall>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if left-top corner
-            if (x == 0 && y == height) {
-                walls.push_back(std::make_unique<Wall>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if right-top corner
-            if (x == width && y == height) {
-                walls.push_back(std::make_unique<Wall>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if left (not corner)
-            if (x == 0 && y != height && y != 0) {
-                floors.push_back(std::make_unique<Floor>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-                walls.push_back(std::make_unique<Wall>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if right (not corner)
-            if (x == width && y != height && y != 0) {
-                floors.push_back(std::make_unique<Floor>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-                walls.push_back(std::make_unique<Wall>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if bottom (not corner)
-            if (y == 0 && x != width && x != 0) {
-                walls.push_back(std::make_unique<Wall>(
-                    std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
-                    std::forward<int>(0)));
-            }
-
-            // if top (not corner)
-            if (y == height && x != width && x != 0) {
-                walls.push_back(std::make_unique<Wall>(
                     std::forward<XYZEngine::Vector2Df>({x * 128.f, y * 128.f}),
                     std::forward<int>(0)));
             }
@@ -85,19 +29,31 @@ void DeveloperLevel::Start() {
     }
 
     // Maze Generator
-    MazeGenerator mazeGenerator(width, height, this);
+    MazeGenerator mazeGenerator(width_, height_, this);
     mazeGenerator.Generate();
 
+    for (int i = 0; i < floors.size(); i++) {
+        floors[i]->SetColor(levelColor_);
+    }
+
+    // Set different color to level
+    for (int i = 0; i < floors.size(); i++) {
+        floors[i]->SetColor(levelColor_);
+    }
+    for (int i = 0; i < walls.size(); i++) {
+        walls[i]->SetColor(levelColor_);
+    }
     player = std::make_shared<Player>(std::forward<XYZEngine::Vector2Df>(
-        {width / 2 * 128.f, height / 2 * 128.f}));
+        {width_ / 2 * 128.f, height_ / 2 * 128.f}));
 
     music = std::make_unique<Music>("music");
 
     // —оздание спавнера с криперами
     std::shared_ptr<Spawner> creeperSpawner = std::make_unique<Spawner>(
         std::forward<XYZEngine::Vector2Df>(
-            {width / 3 * 128.f, height / 3 * 128.f}),
-        3, std::make_unique<Creeper>(player->GetGameObject(), "Creeper", 0));
+            {width_ / 3 * 128.f, height_ / 3 * 128.f}),
+        enemyCount_,
+        std::make_unique<Creeper>(player->GetGameObject(), "Creeper", 0));
 
     creeperSpawner->Spawn();
 }
@@ -106,4 +62,22 @@ void DeveloperLevel::Restart() {
     Start();
 }
 void DeveloperLevel::Stop() { GameWorld::Instance()->Clear(); }
+
+bool DeveloperLevel::IsPlayerAtExit() const { 
+     auto transform =
+        player->GetGameObject()->GetComponent<XYZEngine::TransformComponent>();    
+    if (transform->GetWorldPosition().x > width_ * 128 ||
+         transform->GetWorldPosition().y > height_ * 128) {
+         return true;
+     }
+
+    return false; }
+
+void DeveloperLevel::Update(float deltaTime) {
+    // ѕровер€ем условие перехода на следующий уровень
+    LOG_INFO("Update!");
+    if (IsPlayerAtExit()) {
+        LevelManager::Instance().LoadNextLevel();
+    }
+}
 }  // namespace RogaliqueGame

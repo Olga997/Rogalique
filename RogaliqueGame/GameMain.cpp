@@ -6,6 +6,7 @@
 #include "Matrix2D.h"
 #include "Player.h"
 #include "ResourceSystem.h"
+#include "LevelManager.h"
 
 using namespace RogaliqueGame;
 
@@ -23,6 +24,7 @@ int main() {
         "level_walls", "Resources/Textures/Wall.png", {128, 128}, 1, false);
 
     ResourceSystem::Instance()->LoadSound("music", "Resources/Music/Fon.wav");
+
     // Logger
     auto logger = std::make_shared<Logger>();
     logger->addSink(std::make_shared<ConsoleSink>());
@@ -31,9 +33,18 @@ int main() {
     LoggerRegistry::getInstance().registerLogger("global", logger);
     LoggerRegistry::getInstance().setDefaultLogger(logger);
     //////////
+    
+    //make levels
+    auto level1 = std::make_shared<DeveloperLevel>(15, 15, 3, sf::Color::White);
+    LevelManager::Instance().AddLevel(level1);
 
-    auto developerLevel = std::make_shared<DeveloperLevel>();
-    developerLevel->Start();
+    auto level2 = std::make_shared<DeveloperLevel>(20, 20, 5, sf::Color::Blue);
+    LevelManager::Instance().AddLevel(level2);
+
+    auto level3 = std::make_shared<DeveloperLevel>(15, 15, 3, sf::Color::Red);
+    LevelManager::Instance().AddLevel(level3);
+
+    LevelManager::Instance().StartFirstLevel();
 
     Engine::Instance()->Run();
 

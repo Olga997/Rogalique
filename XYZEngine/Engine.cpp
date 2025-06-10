@@ -3,6 +3,7 @@
 #include <iostream>
 #include "GameWorld.h"
 #include "RenderSystem.h"
+#include "Scene.h"
 
 namespace XYZEngine
 {

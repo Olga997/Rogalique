@@ -82,6 +82,9 @@
     <ClCompile Include="Spawner.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -168,5 +171,6 @@
     <ClInclude Include="Spawner.h">
       <Filter>Sources</Filter>
     </ClInclude>
+    <ClInclude Include="LevelManager.h" />
   </ItemGroup>
 </Project>
