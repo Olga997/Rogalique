@@ -6,8 +6,8 @@ class LevelManager {
    public:
     LevelManager() = default;
     ~LevelManager() = default;
-    
-      static LevelManager& Instance() {
+
+    static LevelManager& Instance() {
         static LevelManager instance;
         return instance;
     }

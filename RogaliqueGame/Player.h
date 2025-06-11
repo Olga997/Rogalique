@@ -12,7 +12,10 @@ class Player {
    public:
     Player(const XYZEngine::Vector2Df& position);
     XYZEngine::GameObject* GetGameObject();
-    void Update();
+
+    void SetupTriggerHandler();
+    void HandleTriggerExit(const XYZEngine::Trigger& trigger);
+
    private:
     XYZEngine::GameObject* gameObject;
 };

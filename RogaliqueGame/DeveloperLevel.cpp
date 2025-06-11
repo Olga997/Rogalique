@@ -1,9 +1,11 @@
 #include "DeveloperLevel.h"
+
+#include <ColliderComponent.h>
+
 #include "Creeper.h"
+#include "LevelManager.h"
 #include "MazeGenerator.h"
 #include "Wall.h"
-#include "LevelManager.h"
-#include "Logger.h"
 
 using namespace XYZEngine;
 
@@ -32,6 +34,8 @@ void DeveloperLevel::Start() {
     MazeGenerator mazeGenerator(width_, height_, this);
     mazeGenerator.Generate();
 
+    // Create TriggerBox around the scene like plaing zone
+
     for (int i = 0; i < floors.size(); i++) {
         floors[i]->SetColor(levelColor_);
     }
@@ -45,6 +49,10 @@ void DeveloperLevel::Start() {
     }
     player = std::make_shared<Player>(std::forward<XYZEngine::Vector2Df>(
         {width_ / 2 * 128.f, height_ / 2 * 128.f}));
+
+    plaingZone = std::make_shared<PlaingZone>(width_ * 128, height_ * 128);
+
+    player->SetupTriggerHandler();
 
     music = std::make_unique<Music>("music");
 
@@ -63,21 +71,4 @@ void DeveloperLevel::Restart() {
 }
 void DeveloperLevel::Stop() { GameWorld::Instance()->Clear(); }
 
-bool DeveloperLevel::IsPlayerAtExit() const { 
-     auto transform =
-        player->GetGameObject()->GetComponent<XYZEngine::TransformComponent>();    
-    if (transform->GetWorldPosition().x > width_ * 128 ||
-         transform->GetWorldPosition().y > height_ * 128) {
-         return true;
-     }
-
-    return false; }
-
-void DeveloperLevel::Update(float deltaTime) {
-    // ѕровер€ем условие перехода на следующий уровень
-    LOG_INFO("Update!");
-    if (IsPlayerAtExit()) {
-        LevelManager::Instance().LoadNextLevel();
-    }
-}
 }  // namespace RogaliqueGame

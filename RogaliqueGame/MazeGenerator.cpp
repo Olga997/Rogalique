@@ -24,7 +24,6 @@ void MazeGenerator::Generate() {
     int startX = std::rand() % width;
     int startY = std::rand() % height;
 
-
     // Use a stack to keep track of visited cells during DFS.
     std::stack<std::pair<int, int>> stack;
     stack.push({startX, startY});
@@ -64,7 +63,6 @@ void MazeGenerator::Generate() {
     }
 }
 
-
 // GetAvailableDirections: Returns a list of valid, unvisited neighboring cells.
 std::vector<std::pair<int, int>> MazeGenerator::GetAvailableDirections(int x,
                                                                        int y) {
@@ -101,10 +99,10 @@ void MazeGenerator::RemoveWall(int x1, int y1, int x2, int y2) {
     int wallY = (y1 + y2) / 2;
 
     // Add floors to the current cell and the neighboring cell.
-   /* level->floors.push_back(std::make_unique<Floor>(
-        XYZEngine::Vector2Df{x1 * 128.f, y1 * 128.f}, 0));
-    level->floors.push_back(std::make_unique<Floor>(
-        XYZEngine::Vector2Df{x2 * 128.f, y2 * 128.f}, 0));*/
+    /* level->floors.push_back(std::make_unique<Floor>(
+         XYZEngine::Vector2Df{x1 * 128.f, y1 * 128.f}, 0));
+     level->floors.push_back(std::make_unique<Floor>(
+         XYZEngine::Vector2Df{x2 * 128.f, y2 * 128.f}, 0));*/
     level->walls.push_back(std::make_unique<Wall>(
         XYZEngine::Vector2Df{x1 * 128.f, y1 * 128.f}, 0));
     level->walls.push_back(std::make_unique<Wall>(

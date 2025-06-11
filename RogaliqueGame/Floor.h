@@ -11,6 +11,7 @@ class Floor {
    public:
     Floor(const XYZEngine::Vector2Df& position, int textureMapIndex);
     void SetColor(sf::Color color);
+
    private:
     XYZEngine::GameObject* gameObject;
 };

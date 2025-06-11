@@ -4,6 +4,7 @@
 
 #include "Floor.h"
 #include "Music.h"
+#include "PlaingZone.h"
 #include "Player.h"
 #include "Scene.h"
 #include "Spawner.h"
@@ -14,12 +15,10 @@ using namespace XYZEngine;
 namespace RogaliqueGame {
 class DeveloperLevel : public Scene {
    public:
-    DeveloperLevel(int width, int height, int enemyCount, sf::Color levelColor) ;
+    DeveloperLevel(int width, int height, int enemyCount, sf::Color levelColor);
     void Start() override;
     void Restart() override;
     void Stop() override;
-    bool IsPlayerAtExit() const;
-    void Update(float deltaTime);
 
     std::vector<std::unique_ptr<Wall>> walls;
     std::vector<std::unique_ptr<Floor>> floors;
@@ -30,7 +29,7 @@ class DeveloperLevel : public Scene {
     int enemyCount_ = 0;
     sf::Color levelColor_;
     std::shared_ptr<Player> player;
+    std::shared_ptr<PlaingZone> plaingZone;
     std::unique_ptr<Music> music;
-
 };
 }  // namespace RogaliqueGame

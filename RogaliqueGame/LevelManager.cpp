@@ -14,13 +14,13 @@ void LevelManager::StartFirstLevel() {
 void LevelManager::LoadNextLevel() {
     if (levels.empty()) return;
 
-    levels[currentLevelIndex]->Stop();
-
-    currentLevelIndex++;
-    if (currentLevelIndex >= levels.size()) {
-        currentLevelIndex = 0;  // Возвращаемся к первому уровню
+    if (currentLevelIndex + 1 >= levels.size()) {
+        levels[currentLevelIndex]->Stop();
+        return;
     }
 
+    levels[currentLevelIndex]->Stop();
+    currentLevelIndex++;
     levels[currentLevelIndex]->Start();
 }
 void LevelManager::RestartCurrentLevel() {

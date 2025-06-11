@@ -1,4 +1,3 @@
-#pragma once
 
 #include <GameWorld.h>
 #include <ResourceSystem.h>
@@ -10,6 +9,7 @@ class Wall {
    public:
     Wall(const XYZEngine::Vector2Df position, int textureMapIndex);
     void SetColor(sf::Color color);
+
    private:
     XYZEngine::GameObject* gameObject;
 };

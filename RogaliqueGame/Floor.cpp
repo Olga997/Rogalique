@@ -1,5 +1,7 @@
 #include "Floor.h"
 
+#include <SpriteColliderComponent.h>
+
 namespace RogaliqueGame {
 Floor::Floor(const XYZEngine::Vector2Df& position, int textureMapIndex) {
     gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("Floor");
