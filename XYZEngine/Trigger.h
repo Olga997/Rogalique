@@ -9,8 +9,9 @@ namespace XYZEngine
 		Trigger(ColliderComponent* newFirst, ColliderComponent* newSecond) :
 			first(newFirst), second(newSecond) {
 		};
+         ColliderComponent* first;
+         ColliderComponent* second;
 	private:
-		ColliderComponent* first;
-		ColliderComponent* second;
+		
 	};
 }

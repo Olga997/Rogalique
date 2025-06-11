@@ -168,8 +168,10 @@
     <ClCompile Include="GameStateData.cpp" />
     <ClCompile Include="GameStateGameWin.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="MazeGenerator.cpp" />
     <ClCompile Include="Music.cpp" />
+    <ClCompile Include="PlaingZone.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Spawner.cpp" />
     <ClCompile Include="Sprite.cpp" />
@@ -196,8 +198,10 @@
     <ClInclude Include="GameStateGameWin.h" />
     <ClInclude Include="IObserver.h" />
     <ClInclude Include="LevelLoader.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="MazeGenerator.h" />
     <ClInclude Include="Music.h" />
+    <ClInclude Include="PlaingZone.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="randomizer.h" />
     <ClInclude Include="Spawner.h" />

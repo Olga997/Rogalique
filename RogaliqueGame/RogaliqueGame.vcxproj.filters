@@ -82,6 +82,12 @@
     <ClCompile Include="Spawner.cpp">
       <Filter>Sources</Filter>
     </ClCompile>
+    <ClCompile Include="LevelManager.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
+    <ClCompile Include="PlaingZone.cpp">
+      <Filter>Sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h">
@@ -166,6 +172,12 @@
       <Filter>Sources</Filter>
     </ClInclude>
     <ClInclude Include="Spawner.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="LevelManager.h">
+      <Filter>Sources</Filter>
+    </ClInclude>
+    <ClInclude Include="PlaingZone.h">
       <Filter>Sources</Filter>
     </ClInclude>
   </ItemGroup>

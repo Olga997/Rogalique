@@ -38,7 +38,6 @@ AI::AI(XYZEngine::GameObject* player, std::string enemyName, int id)
 
     auto attackComponent =
         gameObject->AddComponent<XYZEngine::AttackComponent>(attackPower);
-    SetColor(sf::Color::Black);
 }
 
 XYZEngine::GameObject* AI::GetGameObject() { return gameObject; }

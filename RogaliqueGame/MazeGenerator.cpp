@@ -99,9 +99,13 @@ void MazeGenerator::RemoveWall(int x1, int y1, int x2, int y2) {
     int wallY = (y1 + y2) / 2;
 
     // Add floors to the current cell and the neighboring cell.
-    level->floors.push_back(std::make_unique<Floor>(
+    /* level->floors.push_back(std::make_unique<Floor>(
+         XYZEngine::Vector2Df{x1 * 128.f, y1 * 128.f}, 0));
+     level->floors.push_back(std::make_unique<Floor>(
+         XYZEngine::Vector2Df{x2 * 128.f, y2 * 128.f}, 0));*/
+    level->walls.push_back(std::make_unique<Wall>(
         XYZEngine::Vector2Df{x1 * 128.f, y1 * 128.f}, 0));
-    level->floors.push_back(std::make_unique<Floor>(
+    level->walls.push_back(std::make_unique<Wall>(
         XYZEngine::Vector2Df{x2 * 128.f, y2 * 128.f}, 0));
 
     // Add a wall at the midpoint if the cells are not directly adjacent.
