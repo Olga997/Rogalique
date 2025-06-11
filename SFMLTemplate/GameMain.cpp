@@ -21,9 +21,9 @@ int main()
 	//	std::cerr << "Не удалось выделить консоль." << std::endl;
 	//}
 
-	Engine engine;
-	engine.Initialize();
-	engine.Run();
+	//XYZEngine::Engine& engine;
+	//engine.Initialize();
+	//engine.Run();
 
 	sf::RenderWindow window(sf::VideoMode(330, 400), "SFML works!");
 
