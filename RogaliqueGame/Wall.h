@@ -1,4 +1,4 @@
-
+#pragma once
 #include <GameWorld.h>
 #include <ResourceSystem.h>
 

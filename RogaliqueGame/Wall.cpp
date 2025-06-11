@@ -1,9 +1,8 @@
 #include "Wall.h"
-// #include <SpriteMovementAnimationComponent.h>
 #include <SpriteColliderComponent.h>
 
-RogaliqueGame::Wall::Wall(const XYZEngine::Vector2Df position,
-                          int textureMapIndex) {
+namespace RogaliqueGame {
+Wall::Wall(const XYZEngine::Vector2Df position, int textureMapIndex) {
     gameObject = XYZEngine::GameWorld::Instance()->CreateGameObject("Wall");
     auto transform = gameObject->GetComponent<XYZEngine::TransformComponent>();
     transform->SetWorldPosition(position);
@@ -22,8 +21,9 @@ RogaliqueGame::Wall::Wall(const XYZEngine::Vector2Df position,
         gameObject->AddComponent<XYZEngine::SpriteColliderComponent>();
 }
 
-void RogaliqueGame::Wall::SetColor(sf::Color color) {
+void Wall::SetColor(sf::Color color) {
     auto renderer =
         gameObject->GetComponent<XYZEngine::SpriteRendererComponent>();
     renderer->SetTextureColor(color);
 }
+}  // namespace RogaliqueGame
